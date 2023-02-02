@@ -1,0 +1,11 @@
+{
+  "bool": {
+    "__TYPE__": "BooleanContent",
+    "value": true
+  },
+  "key": {
+    "__TYPE__": "FieldContent",
+    "value": "class",
+    "type": "Text"
+  }
+}

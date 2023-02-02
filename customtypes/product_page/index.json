@@ -1,0 +1,26 @@
+{
+  "id": "product_page",
+  "label": "product page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "bool": {
+        "type": "Boolean",
+        "config": {
+          "label": "bool",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "key": {
+        "type": "Text",
+        "config": {
+          "label": "key",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

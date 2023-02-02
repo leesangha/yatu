@@ -1,0 +1,26 @@
+{
+  "id": "homepage",
+  "label": "homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "rich": {
+        "type": "StructuredText",
+        "config": {
+          "label": "rich",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "timestamp": {
+        "type": "Timestamp",
+        "config": {
+          "label": "timestamp",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "rich": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Labore pariatur quis et labore do id amet laborum ex ipsum laborum proident culpa nostrud reprehenderit."
+        }
+      }
+    ]
+  },
+  "timestamp": {
+    "__TYPE__": "FieldContent",
+    "type": "Timestamp",
+    "value": "2013-06-26T04:09:22Z"
+  }
+}
