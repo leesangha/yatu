@@ -2,7 +2,7 @@ import { createClient } from "../prismicio";
 
 export default function About({ props }: any) {
   console.log(props);
-  return <div>about</div>;
+  return <div>{props.data}</div>;
 }
 
 export async function getServerSideProps({ previewData }: any) {
