@@ -90,6 +90,28 @@ interface ProductPageDocumentData {
      *
      */
     key: prismicT.KeyTextField;
+    /**
+     * product_image field in *product page*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: product_page.product_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    product_image: prismicT.ImageField<never>;
+    /**
+     * price field in *product page*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: product_page.price
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    price: prismicT.RichTextField;
 }
 /**
  * product page document from Prismic
@@ -100,7 +122,7 @@ interface ProductPageDocumentData {
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ProductPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ProductPageDocumentData>, "product_page", Lang>;
+export type ProductPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProductPageDocumentData>, "product_page", Lang>;
 export type AllDocumentTypes = HomepageDocument | PageDocument | ProductPageDocument;
 /**
  * Primary content in Textbox → Primary

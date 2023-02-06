@@ -20,6 +20,30 @@
           "label": "key",
           "placeholder": ""
         }
+      },
+      "product_image": {
+        "type": "Image",
+        "config": {
+          "label": "product_image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "price": {
+        "type": "StructuredText",
+        "config": {
+          "label": "price",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
       }
     }
   }
