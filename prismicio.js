@@ -16,8 +16,11 @@ const routes = [
   },
   {
     type: "page",
-    uid: "about",
-    path: "/about",
+    path: "/:uid",
+  },
+  {
+    type: "product_page",
+    path: "/product/sample",
   },
 ];
 

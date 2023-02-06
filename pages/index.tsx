@@ -10,10 +10,10 @@ const Page = ({ page, navigation, settings }: any) => {
 
 export default Page;
 
-export async function getServerSideProps({ previewData }: any) {
+export async function getStaticProps({ previewData }: any) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", "second");
+  const page = await client.getByUID("page", "sanghalee");
 
   return {
     props: {
