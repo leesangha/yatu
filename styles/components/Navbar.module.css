@@ -1,0 +1,59 @@
+.header {
+  position: fixed;
+  width: 100vw;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  background: white;
+  color: #1c1d1d;
+}
+
+.NavBlock {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.Block {
+  display: flex;
+  align-items: center;
+  max-width: 50%;
+  min-width: 130px;
+  flex: 0 0 200px;
+}
+
+.Nav {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.Menus {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+}
+
+.Menu {
+  text-align: center;
+}
+
+.Button {
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.Icons {
+  display: flex;
+  align-items: center;
+}
+
+.Svg {
+  padding: 10px 20px;
+}

@@ -41,6 +41,46 @@ interface HomepageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomepageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
+/** Content for Navigation documents */
+interface NavigationDocumentData {
+    /**
+     * logo_image field in *Navigation*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: navigation.logo_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo_image: prismicT.ImageField<never>;
+    /**
+     * Slice Zone field in *Navigation*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: navigation.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<NavigationDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Navigation → Slice Zone*
+ *
+ */
+type NavigationDocumentDataSlicesSlice = MenusSlice;
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigationDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<NavigationDocumentData>, "navigation", Lang>;
 /** Content for page documents */
 interface PageDocumentData {
     /**
@@ -123,7 +163,82 @@ interface ProductPageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type ProductPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProductPageDocumentData>, "product_page", Lang>;
-export type AllDocumentTypes = HomepageDocument | PageDocument | ProductPageDocument;
+export type AllDocumentTypes = HomepageDocument | NavigationDocument | PageDocument | ProductPageDocument;
+/**
+ * Primary content in Menus → Primary
+ *
+ */
+interface MenusSliceDefaultPrimary {
+    /**
+     * MenuText field in *Menus → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menus.primary.menutext
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    menutext: prismicT.RichTextField;
+    /**
+     * route field in *Menus → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menus.primary.route
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    route: prismicT.KeyTextField;
+}
+/**
+ * Item in Menus → Items
+ *
+ */
+export interface MenusSliceDefaultItem {
+    /**
+     * SubMenuText field in *Menus → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menus.items[].maintext
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    maintext: prismicT.RichTextField;
+    /**
+     * link field in *Menus → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menus.items[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    link: prismicT.KeyTextField;
+}
+/**
+ * Default variation for Menus Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Menus`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MenusSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<MenusSliceDefaultPrimary>, Simplify<MenusSliceDefaultItem>>;
+/**
+ * Slice variation for *Menus*
+ *
+ */
+type MenusSliceVariation = MenusSliceDefault;
+/**
+ * Menus Shared Slice
+ *
+ * - **API ID**: `menus`
+ * - **Description**: `Menus`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MenusSlice = prismicT.SharedSlice<"menus", MenusSliceVariation>;
 /**
  * Primary content in Textbox → Primary
  *
@@ -178,6 +293,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomepageDocumentData, HomepageDocument, PageDocumentData, PageDocument, ProductPageDocumentData, ProductPageDocument, AllDocumentTypes, TextboxSliceDefaultPrimary, TextboxSliceDefault, TextboxSliceVariation, TextboxSlice };
+        export type { HomepageDocumentData, HomepageDocument, NavigationDocumentData, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocument, ProductPageDocumentData, ProductPageDocument, AllDocumentTypes, MenusSliceDefaultPrimary, MenusSliceDefaultItem, MenusSliceDefault, MenusSliceVariation, MenusSlice, TextboxSliceDefaultPrimary, TextboxSliceDefault, TextboxSliceVariation, TextboxSlice };
     }
 }

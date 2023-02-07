@@ -2,6 +2,15 @@
   "_cts": {
     "page": {},
     "homepage": {},
-    "product_page": {}
+    "product_page": {},
+    "navigation": {}
+  },
+  "slices": {
+    "Menus": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    }
   }
 }

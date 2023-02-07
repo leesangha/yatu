@@ -1,0 +1,29 @@
+{
+  "id": "navigation",
+  "label": "Navigation",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo_image": {
+        "type": "Image",
+        "config": {
+          "label": "logo_image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "menus": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}
