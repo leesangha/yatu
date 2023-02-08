@@ -20,7 +20,7 @@ const routes = [
   },
   {
     type: "product_page",
-    path: "/product/sample",
+    path: "/product/:uid",
   },
 ];
 
@@ -30,17 +30,29 @@ const routes = [
  *
  * @param config {prismicNext.CreateClientConfig} - Configuration for the Prismic client.
  */
-export const createClient = (config = {}) => {
-  const client = prismic.createClient(sm.apiEndpoint, {
-    routes,
-    ...config,
-  });
+// export const createClient = (config = {}) => {
+//   const client = prismic.createClient(sm.apiEndpoint, {
+//     routes,
+//     ...config,
+//   });
 
-  prismicNext.enableAutoPreviews({
-    client,
-    previewData: config.previewData,
-    req: config.req,
-  });
+//   prismicNext.enableAutoPreviews({
+//     client,
+//     previewData: config.previewData,
+//     req: config.req,
+//   });
+
+//   return client;
+// };
+
+export function createClient({
+  previewData,
+  req,
+  ...config
+}: prismicNext.CreateClientConfig = {}) {
+  const client = prismic.createClient(sm.apiEndpoint, { routes, ...config });
+
+  prismicNext.enableAutoPreviews({ client, previewData, req });
 
   return client;
-};
+}

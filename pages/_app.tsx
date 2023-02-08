@@ -10,8 +10,8 @@ import { PrismicPreview } from "@prismicio/next";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
+      <Script src="https://pay.nicepay.co.kr/v1/js/"></Script>
       <PrismicPreview repositoryName={repositoryName}>
-        <Script src="https://pay.nicepay.co.kr/v1/js/"></Script>
         <Layout>
           <Component {...pageProps} />
         </Layout>
