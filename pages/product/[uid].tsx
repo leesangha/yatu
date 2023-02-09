@@ -1,17 +1,25 @@
 import { createClient } from "@/prismicio";
 import type { GetStaticPropsContext } from "next";
-import Image from "next/image";
 import * as prismicH from "@prismicio/helpers";
+import { ProductViewer } from "@/components/ProductViewer";
+import { ProductPageDocument } from "@/.slicemachine/prismicio";
+import { ProductInfo } from "@/components/ProductInfo";
+import styles from "@/styles/Product.module.css";
 
-export default function Product({ page, id }: any) {
+interface Props {
+  page: ProductPageDocument<string>;
+  id: string;
+}
+
+export default function Product({ page, id }: Props) {
+  const { product_image, bool, key, price } = page.data;
+
   return (
-    <div style={{ background: "white", paddingTop: 110 }}>
-      <Image
-        width={512}
-        height={384}
-        src={page.data.product_image.url}
-        alt="asf"
-      />
+    <div className={styles.Wrapper}>
+      <div className={styles.Contents}>
+        <ProductViewer mainSrc={product_image} />
+        <ProductInfo price={price} />
+      </div>
     </div>
   );
 }

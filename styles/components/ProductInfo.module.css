@@ -1,0 +1,53 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  max-width: 600px;
+  padding-left: 45px;
+}
+
+.H1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.Hr {
+  width: 100%;
+  margin: 35px auto;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid;
+  border-color: #e8e8e1;
+}
+
+.Form {
+}
+
+.FormContent + .FormContent {
+  margin-top: 16px;
+}
+.Label {
+  font-size: var(--default-font);
+}
+
+.BtnCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.BtnPayment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  margin-top: 16px;
+  cursor: pointer;
+}

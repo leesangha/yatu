@@ -1,0 +1,9 @@
+.Wrapper {
+  padding-top: 110px;
+  width: 100vw;
+}
+
+.Contents {
+  display: flex;
+  justify-content: center;
+}
