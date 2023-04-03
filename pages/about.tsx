@@ -19,3 +19,24 @@ export default function About({ props }: any) {
     </div>
   );
 }
+
+export async function getServerSiedProps() {
+  const options = {
+    method: "GET",
+    url: "https://quotient.p.rapidapi.com/equity/daily",
+    params: {
+      symbol: "AAPL",
+      from: "2018-04-01",
+      to: "2020-04-21",
+      adjust: "false",
+    },
+    headers: {
+      "X-RapidAPI-Key": "a05428221emshd64f026887f40aep1b5399jsnbb11ee1fc348",
+      "X-RapidAPI-Host": "quotient.p.rapidapi.com",
+    },
+  };
+
+  return {
+    props: {},
+  };
+}
