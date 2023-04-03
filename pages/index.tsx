@@ -1,7 +1,3 @@
-import { PrismicPreview } from "@prismicio/next";
-import { createClient } from "../prismicio";
-import { components } from "../slices";
-
 const Page = ({ page, navigation, settings }: any) => {
   return (
     <div
@@ -19,15 +15,3 @@ const Page = ({ page, navigation, settings }: any) => {
 };
 
 export default Page;
-
-export async function getStaticProps({ previewData }: any) {
-  const client = createClient({ previewData });
-
-  const page = await client.getSingle("homepage");
-
-  return {
-    props: {
-      page,
-    },
-  };
-}
