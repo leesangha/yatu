@@ -11,8 +11,7 @@ instance.interceptors.request.use((config: any) => {
   const _config = {
     ...config,
     headers: {
-      "X-RapidAPI-Key": publicRuntimeConfig.key,
-      "X-RapidAPI-Host": publicRuntimeConfig.host,
+      Authorization: `Bearer ${publicRuntimeConfig.token}`,
     },
   };
   return _config;
@@ -28,14 +27,14 @@ instance.interceptors.response.use(
   }
 );
 
-export async function request<T>(params: { [key: string]: any }): Promise<T> {
+export async function request(params: { [key: string]: any }) {
   const res = await instance.request(params);
-  return res.data.data as T;
+  return res.data;
 }
 
-export async function mutate<T>(...params: any): Promise<T> {
+export async function mutate(...params: any) {
   // axios post 및 타입 받아서 mutation
   // console.log(params);
 
-  return null as T;
+  return null;
 }

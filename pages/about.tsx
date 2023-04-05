@@ -2,9 +2,9 @@ import CandleChart from "@/components/Chart";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { getHostURL } from "@/utils/getUrl";
 import { getStockQuery } from "@/queries/example";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Card } from "@/components/Card";
-import { IBasicStockType } from "@/interface/stock";
+import { IBasicStockType, IStockHistoryResponse } from "@/interface/stock";
 
 export default function About(props: any) {
   const initialData = [
@@ -20,17 +20,12 @@ export default function About(props: any) {
     { time: "2018-12-31", value: 22.67 },
   ];
 
-  const [state, setState] = useState("a");
-  const { data, status } = useQuery<IBasicStockType[]>(
-    getStockQuery({ exchange: "NASDAQ", format: "json" })
-  );
+  const { data, status } = useQuery<IStockHistoryResponse>(getStockQuery());
+  console.log(data);
 
   return (
     <div>
       <CandleChart data={initialData} />
-      {data?.slice(0, 10).map((dt) => {
-        return <Card key={JSON.stringify(dt)} data={dt} />;
-      })}
     </div>
   );
 }

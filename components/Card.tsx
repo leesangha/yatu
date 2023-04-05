@@ -1,7 +1,7 @@
 import { IBasicStockType } from "@/interface/stock";
 
 interface Props {
-  data: IBasicStockType;
+  data: any;
 }
 
 export const Card = ({ data }: Props) => {

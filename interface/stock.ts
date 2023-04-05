@@ -1,9 +1,21 @@
 export interface IBasicStockType {
-  country: string;
-  currency: string;
-  exchange: string;
-  mic_code: string;
-  name: string;
-  symbol: string;
-  type: string;
+  v: number;
+  vw: number;
+  o: number;
+  c: number;
+  h: number;
+  l: number;
+  t: number;
+  n: number;
+}
+
+export interface IStockHistoryResponse {
+  ticker: string;
+  queryCount: number;
+  resultsCount: number;
+  adjusted: boolean;
+  results: IBasicStockType[];
+  status: any;
+  request_id: any;
+  count: number;
 }

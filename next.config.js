@@ -12,8 +12,7 @@ const nextConfig = {
   },
   publicRuntimeConfig: {
     baseURL: process.env.NEXT_BASEURL,
-    host: process.env.NEXT_HOST,
-    key: process.env.NEXT_APIKEY,
+    token: process.env.NEXT_TOKEN,
   },
 };
 
