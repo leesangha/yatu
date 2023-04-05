@@ -9,6 +9,9 @@ export const getStocksAPI: { [key: string]: any } = {
       method: "get",
     };
   },
+  snp: () => ({
+    url: `${baseURL}/v2`,
+  }),
 };
 
 const KEYS = {
