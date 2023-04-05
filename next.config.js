@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    domains: ["images.prismic.io"],
-  },
   webpack: (config) => {
     // 아래를 추가합니다.
     config.module.rules.push({
@@ -12,6 +9,11 @@ const nextConfig = {
       use: ["@svgr/webpack"],
     });
     return config;
+  },
+  publicRuntimeConfig: {
+    baseURL: process.env.NEXT_BASEURL,
+    host: process.env.NEXT_HOST,
+    key: process.env.NEXT_APIKEY,
   },
 };
 

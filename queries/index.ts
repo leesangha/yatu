@@ -1,8 +1,10 @@
 import { getPost } from "@/pages/about";
 import axios from "axios";
+import getConfig from "next/config";
 
+const { publicRuntimeConfig } = getConfig();
 const instance = axios.create({
-  baseURL: process.env.NEXT_ENDPOINT,
+  baseURL: publicRuntimeConfig.baseURL,
 });
 
 // request
@@ -10,8 +12,8 @@ instance.interceptors.request.use((config: any) => {
   const _config = {
     ...config,
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_APIKEY,
-      "X-RapidAPI-Host": process.env.NEXT_ENDPOINT,
+      "X-RapidAPI-Key": publicRuntimeConfig.key,
+      "X-RapidAPI-Host": publicRuntimeConfig.host,
     },
   };
   return _config;
@@ -30,13 +32,13 @@ instance.interceptors.response.use(
 export async function request<T>(params: { [key: string]: any }): Promise<T> {
   // axios get request 처리 후 data return
   const res = await instance.request(getPost().KEY);
-  console.log(res);
-  return null as T;
+  console.log(res.data);
+  return res.data as T;
 }
 
 export async function mutate<T>(...params: any): Promise<T> {
   // axios post 및 타입 받아서 mutation
-  console.log(params);
+  // console.log(params);
 
   return null as T;
 }
