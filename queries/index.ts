@@ -1,4 +1,3 @@
-import { getPost } from "@/pages/about";
 import axios from "axios";
 import getConfig from "next/config";
 
@@ -30,10 +29,8 @@ instance.interceptors.response.use(
 );
 
 export async function request<T>(params: { [key: string]: any }): Promise<T> {
-  // axios get request 처리 후 data return
-  const res = await instance.request(getPost().KEY);
-  console.log(res.data);
-  return res.data as T;
+  const res = await instance.request(params);
+  return res.data.data as T;
 }
 
 export async function mutate<T>(...params: any): Promise<T> {
@@ -42,11 +39,3 @@ export async function mutate<T>(...params: any): Promise<T> {
 
   return null as T;
 }
-
-const f = (params: any) => {
-  return {
-    url: "",
-    method: "",
-    params,
-  };
-};

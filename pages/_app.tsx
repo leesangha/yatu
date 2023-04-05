@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import Script from "next/script";
 import Layout from "@/layout/Layout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -16,7 +15,6 @@ const client = new QueryClient({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={client}>
-      <Script src="https://pay.nicepay.co.kr/v1/js/"></Script>
       <Layout>
         <Component {...pageProps} />
       </Layout>
