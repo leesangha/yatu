@@ -3,6 +3,8 @@ import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { getHostURL } from "@/utils/getUrl";
 import { getStockQuery } from "@/queries/example";
 import { useState } from "react";
+import { Card } from "@/components/Card";
+import { IBasicStockType } from "@/interface/stock";
 
 export default function About(props: any) {
   const initialData = [
@@ -19,15 +21,16 @@ export default function About(props: any) {
   ];
 
   const [state, setState] = useState("a");
-  const { data, status } = useQuery(
+  const { data, status } = useQuery<IBasicStockType[]>(
     getStockQuery({ exchange: "NASDAQ", format: "json" })
   );
 
   return (
     <div>
       <CandleChart data={initialData} />
-      <div>버튼</div>
-      <div>{getHostURL()}</div>
+      {data?.slice(0, 10).map((dt) => {
+        return <Card key={JSON.stringify(dt)} data={dt} />;
+      })}
     </div>
   );
 }
