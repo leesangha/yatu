@@ -19,6 +19,9 @@ ul {
   list-style: none;
 }
 
+.toastui-chart-wrapper + .toastui-chart-wrapper {
+  display: none;
+}
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

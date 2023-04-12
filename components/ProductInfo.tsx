@@ -1,23 +1,14 @@
-import { PrismicRichText } from "@prismicio/react";
-import { RichTextField } from "@prismicio/types";
 import styles from "@/styles/components/ProductInfo.module.css";
 
 interface Props {
   className?: string;
-  price: RichTextField;
 }
 
-export function ProductInfo({ className, price }: Props) {
+export function ProductInfo({ className }: Props) {
   return (
     <div className={`${className} ${styles.Wrapper}`}>
       <h1 className={styles.H1}>Carapace Blazer</h1>
       <p>HLT0081-002</p>
-      <PrismicRichText
-        field={price}
-        components={{
-          paragraph: ({ children }) => <blockquote>{children}</blockquote>,
-        }}
-      />
       <hr className={styles.Hr} />
       <form className={styles.Form}>
         <div className={styles.FormContent}>
