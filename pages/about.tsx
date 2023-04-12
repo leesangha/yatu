@@ -103,12 +103,3 @@ export default function About(props: any) {
     </div>
   );
 }
-
-export async function getServerSiedProps() {
-  const queryClient = new QueryClient();
-  // prefetch할 query 미리 설정
-  // await queryClient.prefetchQuery(["key"], asyncFunc);
-  return {
-    props: { dehydrateState: dehydrate(queryClient) },
-  };
-}
